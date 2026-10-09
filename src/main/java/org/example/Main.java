@@ -18,11 +18,17 @@ public class Main {
         observable.unsubscribe(observer1);
         observable.subscribe(new Observer() {
             @Override
-            public void update(int state) {
-                System.out.println(" Res " + state+Math.random());
+            public void update(Observable observable1) {
+                if(observable1 instanceof  ObservableImpl observable2) {
+                    System.out.println(" Res " + observable2.getState() + Math.random());
+                }
             }
         });
-        observable.subscribe(state -> System.out.println(" Res2 " + state+Math.random()));
+        observable.subscribe((obserable) -> {
+            if (observable instanceof ObservableImpl observable2) {
+                System.out.println(" Res2 " + observable2.getState() + Math.random());
+            }
+        });
         observable.setState(1);
     }
 }

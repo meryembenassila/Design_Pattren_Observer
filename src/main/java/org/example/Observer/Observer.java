@@ -1,5 +1,5 @@
 package org.example.Observer;
 
 public interface Observer {
-    void update(int state);
+    void update(Observable observable);
 }

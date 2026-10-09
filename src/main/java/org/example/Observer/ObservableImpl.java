@@ -21,7 +21,7 @@ public class ObservableImpl implements Observable {
     @Override
     public void notifyObservers() {
            observers.forEach(observer -> {
-               observer.update(state);
+               observer.update(this); //j'envoie mon adresse
            });
     }
 
